@@ -4,57 +4,57 @@ build_time_vars = {'ABIFLAGS': '',
  'AIX_GENUINE_CPLUSPLUS': 0,
  'ALT_SOABI': 0,
  'ANDROID_API_LEVEL': 0,
- 'AR': 'ar',
+ 'AR': '/media/otherhd/benzorom/prebuilts/clang/host/linux-x86/clang-benzo/bin/llvm-ar',
  'ARFLAGS': 'rcs',
- 'BASECFLAGS': '-Wno-unused-result -Wsign-compare',
+ 'BASECFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code',
  'BASECPPFLAGS': '-IObjects -IInclude -IPython',
  'BASEMODLIBS': '',
- 'BINDIR': '/tmpfs/src/out/install/bin',
- 'BINLIBDEST': '/tmpfs/src/out/install/lib/python3.8',
+ 'BINDIR': '/media/otherhd/aosp_tools/python3_build/install/bin',
+ 'BINLIBDEST': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.8',
  'BLDLIBRARY': '-L. -lpython3.8',
- 'BLDSHARED': 'cc -Wno-unused-command-line-argument -s '
-              "-Wl,-rpath,'$ORIGIN/../lib' -pthread -shared",
+ 'BLDSHARED': "clang -pthread -shared -s -Wl,-rpath,'$ORIGIN/../lib'",
  'BUILDEXE': '',
  'BUILDPYTHON': 'python',
  'BUILD_GNU_TYPE': 'x86_64-pc-linux-gnu',
  'BYTESTR_DEPS': '\\',
- 'CC': "cc -Wno-unused-command-line-argument -s -Wl,-rpath,'$ORIGIN/../lib' "
-       '-pthread',
+ 'CC': 'clang -pthread',
  'CCSHARED': '-fPIC',
- 'CFLAGS': '-Wno-unused-result -Wsign-compare -DNDEBUG -g  -O3 -Wall',
+ 'CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG -g '
+           '-fwrapv -O3 -Wall',
  'CFLAGSFORSHARED': '-fPIC',
- 'CFLAGS_ALIASING': '',
+ 'CFLAGS_ALIASING': '-fno-strict-aliasing',
  'CFLAGS_NODIST': '',
  'CONFIGFILES': 'configure configure.ac acconfig.h pyconfig.h.in '
                 'Makefile.pre.in',
  'CONFIGURE_CFLAGS': '',
- 'CONFIGURE_CFLAGS_NODIST': '-std=c99 -Wextra -Wno-unused-result '
+ 'CONFIGURE_CFLAGS_NODIST': '-flto -g -std=c99 -Wextra -Wno-unused-result '
                             '-Wno-unused-parameter '
                             '-Wno-missing-field-initializers '
+                            '-Wstrict-prototypes '
                             '-Werror=implicit-function-declaration',
  'CONFIGURE_CPPFLAGS': '',
- 'CONFIGURE_LDFLAGS': '',
- 'CONFIGURE_LDFLAGS_NODIST': '',
- 'CONFIG_ARGS': "'--prefix=/tmpfs/src/out/install' '--enable-shared' 'CC=cc "
-                '-Wno-unused-command-line-argument -s '
-                "-Wl,-rpath,'\\''$ORIGIN/../lib'\\'''",
- 'CONFINCLUDEDIR': '/tmpfs/src/out/install/include',
- 'CONFINCLUDEPY': '/tmpfs/src/out/install/include/python3.8',
+ 'CONFIGURE_LDFLAGS': "-s -Wl,-rpath,'$ORIGIN/../lib'",
+ 'CONFIGURE_LDFLAGS_NODIST': '-flto -g',
+ 'CONFIG_ARGS': "'--prefix=/media/otherhd/aosp_tools/python3_build/install' "
+                "'--with-lto' '--enable-shared' 'LDFLAGS=-s "
+                "-Wl,-rpath,'\\''$ORIGIN/../lib'\\''' 'CC=clang'",
+ 'CONFINCLUDEDIR': '/media/otherhd/aosp_tools/python3_build/install/include',
+ 'CONFINCLUDEPY': '/media/otherhd/aosp_tools/python3_build/install/include/python3.8',
  'COREPYTHONPATH': '',
- 'COVERAGE_INFO': '/tmpfs/src/out/build/coverage.info',
- 'COVERAGE_REPORT': '/tmpfs/src/out/build/lcov-report',
+ 'COVERAGE_INFO': '/media/otherhd/aosp_tools/python3_build/build/coverage.info',
+ 'COVERAGE_REPORT': '/media/otherhd/aosp_tools/python3_build/build/lcov-report',
  'COVERAGE_REPORT_OPTIONS': '--no-branch-coverage --title "CPython lcov '
                             'report"',
  'CPPFLAGS': '-IObjects -IInclude -IPython -I. '
-             '-I/tmpfs/src/git/cpython3/Include',
- 'CXX': "c++ -Wno-unused-command-line-argument -s -Wl,-rpath,'$ORIGIN/../lib' "
-        '-pthread',
- 'DESTDIRS': '/tmpfs/src/out/install /tmpfs/src/out/install/lib '
-             '/tmpfs/src/out/install/lib/python3.8 '
-             '/tmpfs/src/out/install/lib/python3.8/lib-dynload',
- 'DESTLIB': '/tmpfs/src/out/install/lib/python3.8',
+             '-I/media/otherhd/aosp_tools/python3_build/python3/Include',
+ 'CXX': 'clang++ -pthread',
+ 'DESTDIRS': '/media/otherhd/aosp_tools/python3_build/install '
+             '/media/otherhd/aosp_tools/python3_build/install/lib '
+             '/media/otherhd/aosp_tools/python3_build/install/lib/python3.8 '
+             '/media/otherhd/aosp_tools/python3_build/install/lib/python3.8/lib-dynload',
+ 'DESTLIB': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.8',
  'DESTPATH': '',
- 'DESTSHARED': '/tmpfs/src/out/install/lib/python3.8/lib-dynload',
+ 'DESTSHARED': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.8/lib-dynload',
  'DFLAGS': '',
  'DIRMODE': 755,
  'DIST': 'README.rst ChangeLog configure configure.ac acconfig.h pyconfig.h.in '
@@ -84,12 +84,14 @@ build_time_vars = {'ABIFLAGS': '',
  'FLOCK_NEEDS_LIBBSD': 0,
  'GETPGRP_HAVE_ARG': 0,
  'GETTIMEOFDAY_NO_TZ': 0,
- 'GITBRANCH': 'git --git-dir /tmpfs/src/git/cpython3/.git name-rev --name-only '
-              'HEAD',
- 'GITTAG': 'git --git-dir /tmpfs/src/git/cpython3/.git describe --all --always '
-           '--dirty',
- 'GITVERSION': 'git --git-dir /tmpfs/src/git/cpython3/.git rev-parse --short '
-               'HEAD',
+ 'GITBRANCH': 'git --git-dir '
+              '/media/otherhd/aosp_tools/python3_build/python3/.git name-rev '
+              '--name-only HEAD',
+ 'GITTAG': 'git --git-dir /media/otherhd/aosp_tools/python3_build/python3/.git '
+           'describe --all --always --dirty',
+ 'GITVERSION': 'git --git-dir '
+               '/media/otherhd/aosp_tools/python3_build/python3/.git rev-parse '
+               '--short HEAD',
  'GNULD': 'yes',
  'HAVE_ACCEPT4': 1,
  'HAVE_ACOSH': 1,
@@ -102,7 +104,7 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_ASM_TYPES_H': 1,
  'HAVE_ATANH': 1,
  'HAVE_BIND_TEXTDOMAIN_CODESET': 1,
- 'HAVE_BLUETOOTH_BLUETOOTH_H': 0,
+ 'HAVE_BLUETOOTH_BLUETOOTH_H': 1,
  'HAVE_BLUETOOTH_H': 0,
  'HAVE_BROKEN_MBSTOWCS': 0,
  'HAVE_BROKEN_NICE': 0,
@@ -124,7 +126,7 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_CONFSTR': 1,
  'HAVE_CONIO_H': 0,
  'HAVE_COPYSIGN': 1,
- 'HAVE_COPY_FILE_RANGE': 0,
+ 'HAVE_COPY_FILE_RANGE': 1,
  'HAVE_CRYPT_H': 1,
  'HAVE_CRYPT_R': 1,
  'HAVE_CTERMID': 1,
@@ -172,7 +174,7 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_ERFC': 1,
  'HAVE_ERRNO_H': 1,
  'HAVE_EXECV': 1,
- 'HAVE_EXPLICIT_BZERO': 0,
+ 'HAVE_EXPLICIT_BZERO': 1,
  'HAVE_EXPLICIT_MEMSET': 0,
  'HAVE_EXPM1': 1,
  'HAVE_FACCESSAT': 1,
@@ -211,7 +213,7 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_GCC_UINT128_T': 1,
  'HAVE_GETADDRINFO': 1,
  'HAVE_GETC_UNLOCKED': 1,
- 'HAVE_GETENTROPY': 0,
+ 'HAVE_GETENTROPY': 1,
  'HAVE_GETGRGID_R': 1,
  'HAVE_GETGRNAM_R': 1,
  'HAVE_GETGROUPLIST': 1,
@@ -234,8 +236,8 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_GETPWENT': 1,
  'HAVE_GETPWNAM_R': 1,
  'HAVE_GETPWUID_R': 1,
- 'HAVE_GETRANDOM': 0,
- 'HAVE_GETRANDOM_SYSCALL': 0,
+ 'HAVE_GETRANDOM': 1,
+ 'HAVE_GETRANDOM_SYSCALL': 1,
  'HAVE_GETRESGID': 1,
  'HAVE_GETRESUID': 1,
  'HAVE_GETSID': 1,
@@ -279,12 +281,12 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_LINUX_CAN_H': 1,
  'HAVE_LINUX_CAN_RAW_FD_FRAMES': 1,
  'HAVE_LINUX_CAN_RAW_H': 1,
- 'HAVE_LINUX_MEMFD_H': 0,
+ 'HAVE_LINUX_MEMFD_H': 1,
  'HAVE_LINUX_NETLINK_H': 1,
- 'HAVE_LINUX_QRTR_H': 0,
+ 'HAVE_LINUX_QRTR_H': 1,
  'HAVE_LINUX_RANDOM_H': 1,
  'HAVE_LINUX_TIPC_H': 1,
- 'HAVE_LINUX_VM_SOCKETS_H': 0,
+ 'HAVE_LINUX_VM_SOCKETS_H': 1,
  'HAVE_LOCKF': 1,
  'HAVE_LOG1P': 1,
  'HAVE_LOG2': 1,
@@ -294,7 +296,7 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_MADVISE': 1,
  'HAVE_MAKEDEV': 1,
  'HAVE_MBRTOWC': 1,
- 'HAVE_MEMFD_CREATE': 0,
+ 'HAVE_MEMFD_CREATE': 1,
  'HAVE_MEMORY_H': 1,
  'HAVE_MEMRCHR': 1,
  'HAVE_MKDIRAT': 1,
@@ -324,7 +326,7 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_POSIX_SPAWNP': 1,
  'HAVE_PREAD': 1,
  'HAVE_PREADV': 1,
- 'HAVE_PREADV2': 0,
+ 'HAVE_PREADV2': 1,
  'HAVE_PRLIMIT': 1,
  'HAVE_PROCESS_H': 0,
  'HAVE_PROTOTYPES': 1,
@@ -339,7 +341,7 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_PUTENV': 1,
  'HAVE_PWRITE': 1,
  'HAVE_PWRITEV': 1,
- 'HAVE_PWRITEV2': 0,
+ 'HAVE_PWRITEV2': 1,
  'HAVE_READLINK': 1,
  'HAVE_READLINKAT': 1,
  'HAVE_READV': 1,
@@ -410,13 +412,13 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_STDARG_PROTOTYPES': 1,
  'HAVE_STDINT_H': 1,
  'HAVE_STDLIB_H': 1,
- 'HAVE_STD_ATOMIC': 0,
+ 'HAVE_STD_ATOMIC': 1,
  'HAVE_STRDUP': 1,
  'HAVE_STRFTIME': 1,
  'HAVE_STRINGS_H': 1,
  'HAVE_STRING_H': 1,
  'HAVE_STRLCPY': 0,
- 'HAVE_STROPTS_H': 1,
+ 'HAVE_STROPTS_H': 0,
  'HAVE_STRSIGNAL': 1,
  'HAVE_STRUCT_PASSWD_PW_GECOS': 1,
  'HAVE_STRUCT_PASSWD_PW_PASSWD': 1,
@@ -451,7 +453,7 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_SYS_NDIR_H': 0,
  'HAVE_SYS_PARAM_H': 1,
  'HAVE_SYS_POLL_H': 1,
- 'HAVE_SYS_RANDOM_H': 0,
+ 'HAVE_SYS_RANDOM_H': 1,
  'HAVE_SYS_RESOURCE_H': 1,
  'HAVE_SYS_SELECT_H': 1,
  'HAVE_SYS_SENDFILE_H': 1,
@@ -496,9 +498,9 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_UTIME_H': 1,
  'HAVE_UUID_CREATE': 0,
  'HAVE_UUID_ENC_BE': 0,
- 'HAVE_UUID_GENERATE_TIME_SAFE': 0,
+ 'HAVE_UUID_GENERATE_TIME_SAFE': 1,
  'HAVE_UUID_H': 0,
- 'HAVE_UUID_UUID_H': 0,
+ 'HAVE_UUID_UUID_H': 1,
  'HAVE_WAIT3': 1,
  'HAVE_WAIT4': 1,
  'HAVE_WAITID': 1,
@@ -510,16 +512,16 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_WMEMCMP': 1,
  'HAVE_WORKING_TZSET': 1,
  'HAVE_WRITEV': 1,
- 'HAVE_X509_VERIFY_PARAM_SET1_HOST': 0,
+ 'HAVE_X509_VERIFY_PARAM_SET1_HOST': 1,
  'HAVE_ZLIB_COPY': 1,
  'HAVE__GETPTY': 0,
  'HOST_GNU_TYPE': 'x86_64-pc-linux-gnu',
- 'INCLDIRSTOMAKE': '/tmpfs/src/out/install/include '
-                   '/tmpfs/src/out/install/include '
-                   '/tmpfs/src/out/install/include/python3.8 '
-                   '/tmpfs/src/out/install/include/python3.8',
- 'INCLUDEDIR': '/tmpfs/src/out/install/include',
- 'INCLUDEPY': '/tmpfs/src/out/install/include/python3.8',
+ 'INCLDIRSTOMAKE': '/media/otherhd/aosp_tools/python3_build/install/include '
+                   '/media/otherhd/aosp_tools/python3_build/install/include '
+                   '/media/otherhd/aosp_tools/python3_build/install/include/python3.8 '
+                   '/media/otherhd/aosp_tools/python3_build/install/include/python3.8',
+ 'INCLUDEDIR': '/media/otherhd/aosp_tools/python3_build/install/include',
+ 'INCLUDEPY': '/media/otherhd/aosp_tools/python3_build/install/include/python3.8',
  'INSTALL': '/usr/bin/install -c',
  'INSTALL_DATA': '/usr/bin/install -c -m 644',
  'INSTALL_PROGRAM': '/usr/bin/install -c',
@@ -528,50 +530,47 @@ build_time_vars = {'ABIFLAGS': '',
  'INSTSONAME': 'libpython3.8.so.1.0',
  'IO_H': 'Modules/_io/_iomodule.h',
  'IO_OBJS': '\\',
- 'LDCXXSHARED': 'c++ -Wno-unused-command-line-argument -s '
-                "-Wl,-rpath,'$ORIGIN/../lib' -pthread -shared",
- 'LDFLAGS': '',
+ 'LDCXXSHARED': 'clang++ -pthread -shared',
+ 'LDFLAGS': "-s -Wl,-rpath,'$ORIGIN/../lib'",
  'LDFLAGS_NODIST': '',
  'LDLIBRARY': 'libpython3.8.so',
  'LDLIBRARYDIR': '',
- 'LDSHARED': 'cc -Wno-unused-command-line-argument -s '
-             "-Wl,-rpath,'$ORIGIN/../lib' -pthread -shared",
+ 'LDSHARED': "clang -pthread -shared -s -Wl,-rpath,'$ORIGIN/../lib'",
  'LDVERSION': '3.8',
  'LIBC': '',
- 'LIBDEST': '/tmpfs/src/out/install/lib/python3.8',
- 'LIBDIR': '/tmpfs/src/out/install/lib',
+ 'LIBDEST': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.8',
+ 'LIBDIR': '/media/otherhd/aosp_tools/python3_build/install/lib',
  'LIBFFI_INCLUDEDIR': '',
  'LIBM': '-lm',
  'LIBOBJDIR': 'Python/',
  'LIBOBJS': '',
- 'LIBPC': '/tmpfs/src/out/install/lib/pkgconfig',
- 'LIBPL': '/tmpfs/src/out/install/lib/python3.8/config-3.8-x86_64-linux-gnu',
+ 'LIBPC': '/media/otherhd/aosp_tools/python3_build/install/lib/pkgconfig',
+ 'LIBPL': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.8/config-3.8-x86_64-linux-gnu',
  'LIBPYTHON': '',
  'LIBRARY': 'libpython3.8.a',
  'LIBRARY_OBJS': '\\',
  'LIBRARY_OBJS_OMIT_FROZEN': '\\',
  'LIBS': '-lcrypt -lpthread -ldl  -lutil -lm',
  'LIBSUBDIRS': 'tkinter tkinter/test tkinter/test/test_tkinter \\',
- 'LINKCC': 'cc -Wno-unused-command-line-argument -s '
-           "-Wl,-rpath,'$ORIGIN/../lib' -pthread",
+ 'LINKCC': 'clang -pthread',
  'LINKFORSHARED': '-Xlinker -export-dynamic',
  'LIPO_32BIT_FLAGS': '',
  'LLVM_PROF_ERR': 'no',
- 'LLVM_PROF_FILE': '',
- 'LLVM_PROF_MERGER': '',
+ 'LLVM_PROF_FILE': 'LLVM_PROFILE_FILE="code-%p.profclangr"',
+ 'LLVM_PROF_MERGER': '/media/otherhd/benzorom/prebuilts/clang/host/linux-x86/clang-benzo/bin/llvm-profdata '
+                     'merge -output=code.profclangd *.profclangr',
  'LN': 'ln',
  'LOCALMODLIBS': '',
  'MACHDEP': 'linux',
  'MACHDEP_OBJS': '',
- 'MACHDESTLIB': '/tmpfs/src/out/install/lib/python3.8',
+ 'MACHDESTLIB': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.8',
  'MACOSX_DEPLOYMENT_TARGET': '',
- 'MAINCC': 'cc -Wno-unused-command-line-argument -s '
-           "-Wl,-rpath,'$ORIGIN/../lib' -pthread",
+ 'MAINCC': 'clang -pthread',
  'MAJOR_IN_MKDEV': 0,
- 'MAJOR_IN_SYSMACROS': 0,
- 'MAKESETUP': '/tmpfs/src/git/cpython3/Modules/makesetup',
- 'MANDIR': '/tmpfs/src/out/install/share/man',
- 'MKDIR_P': '/bin/mkdir -p',
+ 'MAJOR_IN_SYSMACROS': 1,
+ 'MAKESETUP': '/media/otherhd/aosp_tools/python3_build/python3/Modules/makesetup',
+ 'MANDIR': '/media/otherhd/aosp_tools/python3_build/install/share/man',
+ 'MKDIR_P': '/usr/bin/mkdir -p',
  'MODBUILT_NAMES': 'posix  errno  pwd  _sre  _codecs  _weakref  _functools  '
                    '_operator  _collections  _abc  itertools  atexit  _signal  '
                    '_stat  time  _thread  _locale  _io  faulthandler  '
@@ -599,7 +598,7 @@ build_time_vars = {'ABIFLAGS': '',
  'OPENSSL_INCLUDES': '',
  'OPENSSL_LDFLAGS': '',
  'OPENSSL_LIBS': '-lssl -lcrypto',
- 'OPT': '-DNDEBUG -g  -O3 -Wall',
+ 'OPT': '-DNDEBUG -g -fwrapv -O3 -Wall',
  'OTHER_LIBTOOL_OPT': '',
  'PACKAGE_BUGREPORT': 0,
  'PACKAGE_NAME': 0,
@@ -609,8 +608,8 @@ build_time_vars = {'ABIFLAGS': '',
  'PACKAGE_VERSION': 0,
  'PARSER_HEADERS': '\\',
  'PARSER_OBJS': '\\ Parser/myreadline.o Parser/parsetok.o Parser/tokenizer.o',
- 'PGO_PROF_GEN_FLAG': '',
- 'PGO_PROF_USE_FLAG': '',
+ 'PGO_PROF_GEN_FLAG': '-fprofile-instr-generate',
+ 'PGO_PROF_USE_FLAG': '-fprofile-instr-use=code.profclangd',
  'POBJS': '\\',
  'POSIX_SEMAPHORES_NOT_ENABLED': 0,
  'PROFILE_TASK': '-m test --pgo',
@@ -626,56 +625,64 @@ build_time_vars = {'ABIFLAGS': '',
  'PYTHONFRAMEWORKPREFIX': '',
  'PYTHONPATH': '',
  'PYTHON_FOR_BUILD': './python -E',
- 'PYTHON_FOR_REGEN': 'python3',
+ 'PYTHON_FOR_REGEN': 'python3.8',
  'PYTHON_HEADERS': '\\',
  'PYTHON_OBJS': '\\',
- 'PY_BUILTIN_MODULE_CFLAGS': '-Wno-unused-result -Wsign-compare -DNDEBUG -g  '
-                             '-O3 -Wall -std=c99 -Wextra -Wno-unused-result '
+ 'PY_BUILTIN_MODULE_CFLAGS': '-Wno-unused-result -Wsign-compare '
+                             '-Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall '
+                             '-flto -g -std=c99 -Wextra -Wno-unused-result '
                              '-Wno-unused-parameter '
                              '-Wno-missing-field-initializers '
+                             '-Wstrict-prototypes '
                              '-Werror=implicit-function-declaration  '
-                             '-I/tmpfs/src/git/cpython3/Include/internal '
+                             '-I/media/otherhd/aosp_tools/python3_build/python3/Include/internal '
                              '-IObjects -IInclude -IPython -I. '
-                             '-I/tmpfs/src/git/cpython3/Include -fPIC '
-                             '-DPy_BUILD_CORE_BUILTIN',
- 'PY_CFLAGS': '-Wno-unused-result -Wsign-compare -DNDEBUG -g  -O3 -Wall',
- 'PY_CFLAGS_NODIST': '-std=c99 -Wextra -Wno-unused-result '
+                             '-I/media/otherhd/aosp_tools/python3_build/python3/Include '
+                             '-fPIC -DPy_BUILD_CORE_BUILTIN',
+ 'PY_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG '
+              '-g -fwrapv -O3 -Wall',
+ 'PY_CFLAGS_NODIST': '-flto -g -std=c99 -Wextra -Wno-unused-result '
                      '-Wno-unused-parameter -Wno-missing-field-initializers '
+                     '-Wstrict-prototypes '
                      '-Werror=implicit-function-declaration  '
-                     '-I/tmpfs/src/git/cpython3/Include/internal',
+                     '-I/media/otherhd/aosp_tools/python3_build/python3/Include/internal',
  'PY_COERCE_C_LOCALE': 1,
- 'PY_CORE_CFLAGS': '-Wno-unused-result -Wsign-compare -DNDEBUG -g  -O3 -Wall '
-                   '-std=c99 -Wextra -Wno-unused-result -Wno-unused-parameter '
-                   '-Wno-missing-field-initializers '
+ 'PY_CORE_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code '
+                   '-DNDEBUG -g -fwrapv -O3 -Wall -flto -g -std=c99 -Wextra '
+                   '-Wno-unused-result -Wno-unused-parameter '
+                   '-Wno-missing-field-initializers -Wstrict-prototypes '
                    '-Werror=implicit-function-declaration  '
-                   '-I/tmpfs/src/git/cpython3/Include/internal -IObjects '
-                   '-IInclude -IPython -I. -I/tmpfs/src/git/cpython3/Include '
+                   '-I/media/otherhd/aosp_tools/python3_build/python3/Include/internal '
+                   '-IObjects -IInclude -IPython -I. '
+                   '-I/media/otherhd/aosp_tools/python3_build/python3/Include '
                    '-fPIC -DPy_BUILD_CORE',
- 'PY_CORE_LDFLAGS': '',
+ 'PY_CORE_LDFLAGS': "-s -Wl,-rpath,'$ORIGIN/../lib' -flto -g",
  'PY_CPPFLAGS': '-IObjects -IInclude -IPython -I. '
-                '-I/tmpfs/src/git/cpython3/Include',
+                '-I/media/otherhd/aosp_tools/python3_build/python3/Include',
  'PY_FORMAT_SIZE_T': '"z"',
- 'PY_LDFLAGS': '',
- 'PY_LDFLAGS_NODIST': '',
+ 'PY_LDFLAGS': "-s -Wl,-rpath,'$ORIGIN/../lib'",
+ 'PY_LDFLAGS_NODIST': '-flto -g',
  'PY_SSL_DEFAULT_CIPHERS': 1,
  'PY_SSL_DEFAULT_CIPHER_STRING': 0,
- 'PY_STDMODULE_CFLAGS': '-Wno-unused-result -Wsign-compare -DNDEBUG -g  -O3 '
-                        '-Wall -std=c99 -Wextra -Wno-unused-result '
-                        '-Wno-unused-parameter -Wno-missing-field-initializers '
+ 'PY_STDMODULE_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code '
+                        '-DNDEBUG -g -fwrapv -O3 -Wall -flto -g -std=c99 '
+                        '-Wextra -Wno-unused-result -Wno-unused-parameter '
+                        '-Wno-missing-field-initializers -Wstrict-prototypes '
                         '-Werror=implicit-function-declaration  '
-                        '-I/tmpfs/src/git/cpython3/Include/internal -IObjects '
-                        '-IInclude -IPython -I. '
-                        '-I/tmpfs/src/git/cpython3/Include -fPIC',
+                        '-I/media/otherhd/aosp_tools/python3_build/python3/Include/internal '
+                        '-IObjects -IInclude -IPython -I. '
+                        '-I/media/otherhd/aosp_tools/python3_build/python3/Include '
+                        '-fPIC',
  'Py_DEBUG': 0,
  'Py_ENABLE_SHARED': 1,
  'Py_HASH_ALGORITHM': 0,
  'Py_TRACE_REFS': 0,
  'QUICKTESTOPTS': '-x test_subprocess test_io test_lib2to3 \\',
- 'READELF': 'readelf',
+ 'READELF': 'llvm-readelf',
  'RESSRCDIR': 'Mac/Resources/framework',
  'RETSIGTYPE': 'void',
- 'RUNSHARED': 'LD_LIBRARY_PATH=/tmpfs/src/out/build:/usr/local/tensorrt/lib',
- 'SCRIPTDIR': '/tmpfs/src/out/install/lib',
+ 'RUNSHARED': 'LD_LIBRARY_PATH=/media/otherhd/aosp_tools/python3_build/build:/media/otherhd/benzorom/prebuilts/clang/host/linux-x86/clang-benzo/lib64:',
+ 'SCRIPTDIR': '/media/otherhd/aosp_tools/python3_build/install/lib',
  'SETPGRP_HAVE_ARG': 0,
  'SGI_ABI': '@SGI_ABI@',
  'SHELL': '/bin/sh',
@@ -704,7 +711,7 @@ build_time_vars = {'ABIFLAGS': '',
  'SIZEOF__BOOL': 1,
  'SOABI': 'cpython-38-x86_64-linux-gnu',
  'SRCDIRS': 'Parser Objects Python Modules Modules/_io Programs',
- 'SRC_GDB_HOOKS': '/tmpfs/src/git/cpython3/Tools/gdb/libpython.py',
+ 'SRC_GDB_HOOKS': '/media/otherhd/aosp_tools/python3_build/python3/Tools/gdb/libpython.py',
  'STDC_HEADERS': 1,
  'STRICT_SYSV_CURSES': "/* Don't use ncurses extensions */",
  'STRIPFLAG': '-s',
@@ -716,22 +723,25 @@ build_time_vars = {'ABIFLAGS': '',
  'TCLTK_LIBS': '',
  'TESTOPTS': '',
  'TESTPATH': '',
- 'TESTPYTHON': 'LD_LIBRARY_PATH=/tmpfs/src/out/build:/usr/local/tensorrt/lib '
+ 'TESTPYTHON': 'LD_LIBRARY_PATH=/media/otherhd/aosp_tools/python3_build/build:/media/otherhd/benzorom/prebuilts/clang/host/linux-x86/clang-benzo/lib64: '
                './python',
  'TESTPYTHONOPTS': '',
- 'TESTRUNNER': 'LD_LIBRARY_PATH=/tmpfs/src/out/build:/usr/local/tensorrt/lib '
-               './python /tmpfs/src/git/cpython3/Tools/scripts/run_tests.py',
+ 'TESTRUNNER': 'LD_LIBRARY_PATH=/media/otherhd/aosp_tools/python3_build/build:/media/otherhd/benzorom/prebuilts/clang/host/linux-x86/clang-benzo/lib64: '
+               './python '
+               '/media/otherhd/aosp_tools/python3_build/python3/Tools/scripts/run_tests.py',
  'TESTTIMEOUT': 1200,
  'TIMEMODULE_LIB': 0,
  'TIME_WITH_SYS_TIME': 1,
  'TM_IN_SYS_TIME': 0,
  'UNICODE_DEPS': '\\',
  'UNIVERSALSDK': '',
- 'UPDATE_FILE': 'python3 /tmpfs/src/git/cpython3/Tools/scripts/update_file.py',
+ 'UPDATE_FILE': 'python3.8 '
+                '/media/otherhd/aosp_tools/python3_build/python3/Tools/scripts/update_file.py',
  'USE_COMPUTED_GOTOS': 0,
  'VERSION': '3.8',
- 'VPATH': '/tmpfs/src/git/cpython3',
+ 'VPATH': '/media/otherhd/aosp_tools/python3_build/python3',
  'WINDOW_HAS_FLAGS': 1,
+ 'WITH_DECIMAL_CONTEXTVAR': 1,
  'WITH_DOC_STRINGS': 1,
  'WITH_DTRACE': 0,
  'WITH_DYLD': 0,
@@ -741,9 +751,9 @@ build_time_vars = {'ABIFLAGS': '',
  'WITH_VALGRIND': 0,
  'X87_DOUBLE_ROUNDING': 0,
  'XMLLIBSUBDIRS': 'xml xml/dom xml/etree xml/parsers xml/sax',
- 'abs_builddir': '/tmpfs/src/out/build',
- 'abs_srcdir': '/tmpfs/src/git/cpython3',
- 'datarootdir': '/tmpfs/src/out/install/share',
- 'exec_prefix': '/tmpfs/src/out/install',
- 'prefix': '/tmpfs/src/out/install',
- 'srcdir': '/tmpfs/src/git/cpython3'}
+ 'abs_builddir': '/media/otherhd/aosp_tools/python3_build/build',
+ 'abs_srcdir': '/media/otherhd/aosp_tools/python3_build/python3',
+ 'datarootdir': '/media/otherhd/aosp_tools/python3_build/install/share',
+ 'exec_prefix': '/media/otherhd/aosp_tools/python3_build/install',
+ 'prefix': '/media/otherhd/aosp_tools/python3_build/install',
+ 'srcdir': '/media/otherhd/aosp_tools/python3_build/python3'}

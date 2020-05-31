@@ -1,5 +1,5 @@
 # See: man pkg-config
-prefix=/tmpfs/src/out/install
+prefix=/media/otherhd/aosp_tools/python3_build/install
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
