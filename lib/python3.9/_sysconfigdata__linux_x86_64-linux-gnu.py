@@ -13,23 +13,22 @@ build_time_vars = {'ABIFLAGS': '',
  'BINDIR': '/media/otherhd/aosp_tools/python3_build/install/bin',
  'BINLIBDEST': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.9',
  'BLDLIBRARY': '-L. -lpython3.9',
- 'BLDSHARED': 'clang -Wno-unused-command-line-argument -s '
-              "-Wl,-rpath,'$ORIGIN/../lib' -pthread -shared",
+ 'BLDSHARED': 'clang -pthread -shared -Wno-unused-command-line-argument -s '
+              "-Wl,-rpath,'$ORIGIN/../lib'",
  'BUILDEXE': '',
  'BUILDPYTHON': 'python',
  'BUILD_GNU_TYPE': 'x86_64-pc-linux-gnu',
  'BYTESTR_DEPS': '\\',
- 'CC': "clang -Wno-unused-command-line-argument -s -Wl,-rpath,'$ORIGIN/../lib' "
-       '-pthread',
+ 'CC': 'clang -pthread',
  'CCSHARED': '-fPIC',
  'CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG -g '
-           '-fwrapv -O3 -Wall',
+           '-fwrapv -O3 -Wall -Wno-unused-command-line-argument',
  'CFLAGSFORSHARED': '-fPIC',
  'CFLAGS_ALIASING': '-fno-strict-aliasing',
  'CFLAGS_NODIST': '',
  'CONFIGFILES': 'configure configure.ac acconfig.h pyconfig.h.in '
                 'Makefile.pre.in',
- 'CONFIGURE_CFLAGS': '',
+ 'CONFIGURE_CFLAGS': '-Wno-unused-command-line-argument',
  'CONFIGURE_CFLAGS_NODIST': '-flto -g -std=c99 -Wextra -Wno-unused-result '
                             '-Wno-unused-parameter '
                             '-Wno-missing-field-initializers '
@@ -37,12 +36,14 @@ build_time_vars = {'ABIFLAGS': '',
                             '-Werror=implicit-function-declaration '
                             '-fvisibility=hidden',
  'CONFIGURE_CPPFLAGS': '',
- 'CONFIGURE_LDFLAGS': '',
+ 'CONFIGURE_LDFLAGS': '-Wno-unused-command-line-argument -s '
+                      "-Wl,-rpath,'$ORIGIN/../lib'",
  'CONFIGURE_LDFLAGS_NODIST': '-flto -g',
  'CONFIG_ARGS': "'--prefix=/media/otherhd/aosp_tools/python3_build/install' "
                 "'--with-lto' '--enable-optimizations' '--enable-shared' "
-                "'CC=clang -Wno-unused-command-line-argument -s "
-                "-Wl,-rpath,'\\''$ORIGIN/../lib'\\'''",
+                "'CFLAGS=-Wno-unused-command-line-argument' "
+                "'LDFLAGS=-Wno-unused-command-line-argument -s "
+                "-Wl,-rpath,'\\''$ORIGIN/../lib'\\''' 'CC=clang'",
  'CONFINCLUDEDIR': '/media/otherhd/aosp_tools/python3_build/install/include',
  'CONFINCLUDEPY': '/media/otherhd/aosp_tools/python3_build/install/include/python3.9',
  'COREPYTHONPATH': '',
@@ -52,8 +53,7 @@ build_time_vars = {'ABIFLAGS': '',
                             'report"',
  'CPPFLAGS': '-IObjects -IInclude -IPython -I. '
              '-I/media/otherhd/aosp_tools/python3_build/python3/Include',
- 'CXX': 'clang++ -Wno-unused-command-line-argument -s '
-        "-Wl,-rpath,'$ORIGIN/../lib' -pthread",
+ 'CXX': 'clang++ -pthread',
  'DESTDIRS': '/media/otherhd/aosp_tools/python3_build/install '
              '/media/otherhd/aosp_tools/python3_build/install/lib '
              '/media/otherhd/aosp_tools/python3_build/install/lib/python3.9 '
@@ -538,14 +538,13 @@ build_time_vars = {'ABIFLAGS': '',
  'INSTSONAME': 'libpython3.9.so.1.0',
  'IO_H': 'Modules/_io/_iomodule.h',
  'IO_OBJS': '\\',
- 'LDCXXSHARED': 'clang++ -Wno-unused-command-line-argument -s '
-                "-Wl,-rpath,'$ORIGIN/../lib' -pthread -shared",
- 'LDFLAGS': '',
+ 'LDCXXSHARED': 'clang++ -pthread -shared',
+ 'LDFLAGS': "-Wno-unused-command-line-argument -s -Wl,-rpath,'$ORIGIN/../lib'",
  'LDFLAGS_NODIST': '',
  'LDLIBRARY': 'libpython3.9.so',
  'LDLIBRARYDIR': '',
- 'LDSHARED': 'clang -Wno-unused-command-line-argument -s '
-             "-Wl,-rpath,'$ORIGIN/../lib' -pthread -shared",
+ 'LDSHARED': 'clang -pthread -shared -Wno-unused-command-line-argument -s '
+             "-Wl,-rpath,'$ORIGIN/../lib'",
  'LDVERSION': '3.9',
  'LIBC': '',
  'LIBDEST': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.9',
@@ -562,8 +561,7 @@ build_time_vars = {'ABIFLAGS': '',
  'LIBRARY_OBJS_OMIT_FROZEN': '\\',
  'LIBS': '-lcrypt -lpthread -ldl  -lutil -lm',
  'LIBSUBDIRS': 'tkinter tkinter/test tkinter/test/test_tkinter \\',
- 'LINKCC': 'clang -Wno-unused-command-line-argument -s '
-           "-Wl,-rpath,'$ORIGIN/../lib' -pthread",
+ 'LINKCC': 'clang -pthread',
  'LINKFORSHARED': '-Xlinker -export-dynamic',
  'LIPO_32BIT_FLAGS': '',
  'LLVM_PROF_ERR': 'no',
@@ -576,8 +574,7 @@ build_time_vars = {'ABIFLAGS': '',
  'MACHDEP_OBJS': '',
  'MACHDESTLIB': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.9',
  'MACOSX_DEPLOYMENT_TARGET': '',
- 'MAINCC': 'clang -Wno-unused-command-line-argument -s '
-           "-Wl,-rpath,'$ORIGIN/../lib' -pthread",
+ 'MAINCC': 'clang -pthread',
  'MAJOR_IN_MKDEV': 0,
  'MAJOR_IN_SYSMACROS': 1,
  'MAKESETUP': '/media/otherhd/aosp_tools/python3_build/python3/Modules/makesetup',
@@ -646,7 +643,8 @@ build_time_vars = {'ABIFLAGS': '',
  'PY_BUILTIN_HASHLIB_HASHES': '"md5,sha1,sha256,sha512,sha3,blake2"',
  'PY_BUILTIN_MODULE_CFLAGS': '-Wno-unused-result -Wsign-compare '
                              '-Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall '
-                             '-flto -g -std=c99 -Wextra -Wno-unused-result '
+                             '-Wno-unused-command-line-argument -flto -g '
+                             '-std=c99 -Wextra -Wno-unused-result '
                              '-Wno-unused-parameter '
                              '-Wno-missing-field-initializers '
                              '-Wstrict-prototypes '
@@ -657,7 +655,7 @@ build_time_vars = {'ABIFLAGS': '',
                              '-I/media/otherhd/aosp_tools/python3_build/python3/Include '
                              '-fPIC -DPy_BUILD_CORE_BUILTIN',
  'PY_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG '
-              '-g -fwrapv -O3 -Wall',
+              '-g -fwrapv -O3 -Wall -Wno-unused-command-line-argument',
  'PY_CFLAGS_NODIST': '-flto -g -std=c99 -Wextra -Wno-unused-result '
                      '-Wno-unused-parameter -Wno-missing-field-initializers '
                      '-Wstrict-prototypes '
@@ -666,24 +664,28 @@ build_time_vars = {'ABIFLAGS': '',
                      '-I/media/otherhd/aosp_tools/python3_build/python3/Include/internal',
  'PY_COERCE_C_LOCALE': 1,
  'PY_CORE_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code '
-                   '-DNDEBUG -g -fwrapv -O3 -Wall -flto -g -std=c99 -Wextra '
-                   '-Wno-unused-result -Wno-unused-parameter '
+                   '-DNDEBUG -g -fwrapv -O3 -Wall '
+                   '-Wno-unused-command-line-argument -flto -g -std=c99 '
+                   '-Wextra -Wno-unused-result -Wno-unused-parameter '
                    '-Wno-missing-field-initializers -Wstrict-prototypes '
                    '-Werror=implicit-function-declaration -fvisibility=hidden  '
                    '-I/media/otherhd/aosp_tools/python3_build/python3/Include/internal '
                    '-IObjects -IInclude -IPython -I. '
                    '-I/media/otherhd/aosp_tools/python3_build/python3/Include '
                    '-fPIC -DPy_BUILD_CORE',
- 'PY_CORE_LDFLAGS': '-flto -g',
+ 'PY_CORE_LDFLAGS': '-Wno-unused-command-line-argument -s '
+                    "-Wl,-rpath,'$ORIGIN/../lib' -flto -g",
  'PY_CPPFLAGS': '-IObjects -IInclude -IPython -I. '
                 '-I/media/otherhd/aosp_tools/python3_build/python3/Include',
  'PY_FORMAT_SIZE_T': '"z"',
- 'PY_LDFLAGS': '',
+ 'PY_LDFLAGS': '-Wno-unused-command-line-argument -s '
+               "-Wl,-rpath,'$ORIGIN/../lib'",
  'PY_LDFLAGS_NODIST': '-flto -g',
  'PY_SSL_DEFAULT_CIPHERS': 1,
  'PY_SSL_DEFAULT_CIPHER_STRING': 0,
  'PY_STDMODULE_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code '
-                        '-DNDEBUG -g -fwrapv -O3 -Wall -flto -g -std=c99 '
+                        '-DNDEBUG -g -fwrapv -O3 -Wall '
+                        '-Wno-unused-command-line-argument -flto -g -std=c99 '
                         '-Wextra -Wno-unused-result -Wno-unused-parameter '
                         '-Wno-missing-field-initializers -Wstrict-prototypes '
                         '-Werror=implicit-function-declaration '
