@@ -7,7 +7,7 @@ build_time_vars = {'ABIFLAGS': '',
  'ALIGNOF_SIZE_T': 8,
  'ALT_SOABI': 0,
  'ANDROID_API_LEVEL': 0,
- 'AR': '/media/otherhd/benzorom/prebuilts/clang/host/linux-x86/clang-benzo/bin/llvm-ar',
+ 'AR': 'llvm-ar',
  'ARFLAGS': 'rcs',
  'BASECFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code',
  'BASECPPFLAGS': '-IObjects -IInclude -IPython',
@@ -15,13 +15,13 @@ build_time_vars = {'ABIFLAGS': '',
  'BINDIR': '/media/otherhd/aosp_tools/python3_build/install/bin',
  'BINLIBDEST': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.10',
  'BLDLIBRARY': '-L. -lpython3.10',
- 'BLDSHARED': 'clang -pthread -shared -Wno-unused-command-line-argument -s '
-              "-Wl,-rpath,'$ORIGIN/../lib'",
+ 'BLDSHARED': 'clang -shared -Wno-unused-command-line-argument -s '
+              '-Wl,-rpath,\\$ORIGIN/../lib -Wl,--as-needed -flto=thin',
  'BUILDEXE': '',
  'BUILDPYTHON': 'python',
  'BUILD_GNU_TYPE': 'x86_64-pc-linux-gnu',
  'BYTESTR_DEPS': '\\',
- 'CC': 'clang -pthread',
+ 'CC': 'clang',
  'CCSHARED': '-fPIC',
  'CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG -g '
            '-fwrapv -O3 -Wall -Wno-unused-command-line-argument',
@@ -31,7 +31,7 @@ build_time_vars = {'ABIFLAGS': '',
  'CONFIGFILES': 'configure configure.ac acconfig.h pyconfig.h.in '
                 'Makefile.pre.in',
  'CONFIGURE_CFLAGS': '-Wno-unused-command-line-argument',
- 'CONFIGURE_CFLAGS_NODIST': '-flto -g -std=c99 -Wextra -Wno-unused-result '
+ 'CONFIGURE_CFLAGS_NODIST': '-std=c99 -Wextra -Wno-unused-result '
                             '-Wno-unused-parameter '
                             '-Wno-missing-field-initializers '
                             '-Wstrict-prototypes '
@@ -39,13 +39,13 @@ build_time_vars = {'ABIFLAGS': '',
                             '-fvisibility=hidden',
  'CONFIGURE_CPPFLAGS': '',
  'CONFIGURE_LDFLAGS': '-Wno-unused-command-line-argument -s '
-                      "-Wl,-rpath,'$ORIGIN/../lib'",
- 'CONFIGURE_LDFLAGS_NODIST': '-flto -g',
+                      '-Wl,-rpath,\\$ORIGIN/../lib -Wl,--as-needed -flto=thin',
+ 'CONFIGURE_LDFLAGS_NODIST': '',
  'CONFIG_ARGS': "'--prefix=/media/otherhd/aosp_tools/python3_build/install' "
-                "'--enable-shared' '--enable-optimizations' '--with-lto' "
-                "'CFLAGS=-Wno-unused-command-line-argument' "
+                "'--enable-shared' 'CFLAGS=-Wno-unused-command-line-argument' "
                 "'LDFLAGS=-Wno-unused-command-line-argument -s "
-                "-Wl,-rpath,'\\''$ORIGIN/../lib'\\''' 'CC=clang'",
+                "-Wl,-rpath,\\$ORIGIN/../lib -Wl,--as-needed -flto=thin' "
+                "'CC=clang'",
  'CONFINCLUDEDIR': '/media/otherhd/aosp_tools/python3_build/install/include',
  'CONFINCLUDEPY': '/media/otherhd/aosp_tools/python3_build/install/include/python3.10',
  'COREPYTHONPATH': '',
@@ -55,7 +55,7 @@ build_time_vars = {'ABIFLAGS': '',
                             'report"',
  'CPPFLAGS': '-IObjects -IInclude -IPython -I. '
              '-I/media/otherhd/aosp_tools/python3_build/python3/Include',
- 'CXX': 'clang++ -pthread',
+ 'CXX': 'clang++',
  'DESTDIRS': '/media/otherhd/aosp_tools/python3_build/install '
              '/media/otherhd/aosp_tools/python3_build/install/lib '
              '/media/otherhd/aosp_tools/python3_build/install/lib/python3.10 '
@@ -132,7 +132,7 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_CLOCK_GETRES': 1,
  'HAVE_CLOCK_GETTIME': 1,
  'HAVE_CLOCK_SETTIME': 1,
- 'HAVE_CLOSE_RANGE': 0,
+ 'HAVE_CLOSE_RANGE': 1,
  'HAVE_COMPUTED_GOTOS': 1,
  'HAVE_CONFSTR': 1,
  'HAVE_CONIO_H': 0,
@@ -287,8 +287,10 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_LIBRESOLV': 0,
  'HAVE_LIBSENDFILE': 0,
  'HAVE_LIBUTIL_H': 0,
+ 'HAVE_LIBUUID': 1,
  'HAVE_LINK': 1,
  'HAVE_LINKAT': 1,
+ 'HAVE_LINUX_AUXVEC_H': 1,
  'HAVE_LINUX_CAN_BCM_H': 1,
  'HAVE_LINUX_CAN_H': 1,
  'HAVE_LINUX_CAN_J1939_H': 1,
@@ -378,6 +380,7 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_SCHED_SETAFFINITY': 1,
  'HAVE_SCHED_SETPARAM': 1,
  'HAVE_SCHED_SETSCHEDULER': 1,
+ 'HAVE_SEM_CLOCKWAIT': 1,
  'HAVE_SEM_GETVALUE': 1,
  'HAVE_SEM_OPEN': 1,
  'HAVE_SEM_TIMEDWAIT': 1,
@@ -450,6 +453,7 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_SYSCONF': 1,
  'HAVE_SYSEXITS_H': 1,
  'HAVE_SYS_AUDIOIO_H': 0,
+ 'HAVE_SYS_AUXV_H': 1,
  'HAVE_SYS_BSDTTY_H': 0,
  'HAVE_SYS_DEVPOLL_H': 0,
  'HAVE_SYS_DIR_H': 0,
@@ -545,13 +549,14 @@ build_time_vars = {'ABIFLAGS': '',
  'INSTSONAME': 'libpython3.10.so.1.0',
  'IO_H': 'Modules/_io/_iomodule.h',
  'IO_OBJS': '\\',
- 'LDCXXSHARED': 'clang++ -pthread -shared',
- 'LDFLAGS': "-Wno-unused-command-line-argument -s -Wl,-rpath,'$ORIGIN/../lib'",
+ 'LDCXXSHARED': 'clang++ -shared',
+ 'LDFLAGS': '-Wno-unused-command-line-argument -s -Wl,-rpath,\\$ORIGIN/../lib '
+            '-Wl,--as-needed -flto=thin',
  'LDFLAGS_NODIST': '',
  'LDLIBRARY': 'libpython3.10.so',
  'LDLIBRARYDIR': '',
- 'LDSHARED': 'clang -pthread -shared -Wno-unused-command-line-argument -s '
-             "-Wl,-rpath,'$ORIGIN/../lib'",
+ 'LDSHARED': 'clang -shared -Wno-unused-command-line-argument -s '
+             '-Wl,-rpath,\\$ORIGIN/../lib -Wl,--as-needed -flto=thin',
  'LDVERSION': '3.10',
  'LIBC': '',
  'LIBDEST': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.10',
@@ -567,15 +572,15 @@ build_time_vars = {'ABIFLAGS': '',
  'LIBRARY_DEPS': 'libpython3.10.a libpython3.10.so libpython3.so',
  'LIBRARY_OBJS': '\\',
  'LIBRARY_OBJS_OMIT_FROZEN': '\\',
- 'LIBS': '-lcrypt -lpthread -ldl  -lutil -lm',
+ 'LIBS': '-lcrypt -ldl  -lm',
  'LIBSUBDIRS': 'asyncio \\',
- 'LINKCC': 'clang -pthread',
+ 'LINKCC': 'clang',
  'LINKFORSHARED': '-Xlinker -export-dynamic',
  'LIPO_32BIT_FLAGS': '',
  'LIPO_INTEL64_FLAGS': '',
  'LLVM_PROF_ERR': 'no',
  'LLVM_PROF_FILE': 'LLVM_PROFILE_FILE="code-%p.profclangr"',
- 'LLVM_PROF_MERGER': '/media/otherhd/benzorom/prebuilts/clang/host/linux-x86/clang-benzo/bin/llvm-profdata '
+ 'LLVM_PROF_MERGER': '/media/otherhd/benzorom-12/prebuilts/clang/host/linux-x86/clang-benzo/bin/llvm-profdata '
                      'merge -output=code.profclangd *.profclangr',
  'LN': 'ln',
  'LOCALMODLIBS': '',
@@ -583,7 +588,7 @@ build_time_vars = {'ABIFLAGS': '',
  'MACHDEP_OBJS': '',
  'MACHDESTLIB': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.10',
  'MACOSX_DEPLOYMENT_TARGET': '',
- 'MAINCC': 'clang -pthread',
+ 'MAINCC': 'clang',
  'MAJOR_IN_MKDEV': 0,
  'MAJOR_IN_SYSMACROS': 1,
  'MAKESETUP': '/media/otherhd/aosp_tools/python3_build/python3/Modules/makesetup',
@@ -653,9 +658,8 @@ build_time_vars = {'ABIFLAGS': '',
  'PY_BUILTIN_HASHLIB_HASHES': '"md5,sha1,sha256,sha512,sha3,blake2"',
  'PY_BUILTIN_MODULE_CFLAGS': '-Wno-unused-result -Wsign-compare '
                              '-Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall '
-                             '-Wno-unused-command-line-argument -flto -g '
-                             '-std=c99 -Wextra -Wno-unused-result '
-                             '-Wno-unused-parameter '
+                             '-Wno-unused-command-line-argument -std=c99 '
+                             '-Wextra -Wno-unused-result -Wno-unused-parameter '
                              '-Wno-missing-field-initializers '
                              '-Wstrict-prototypes '
                              '-Werror=implicit-function-declaration '
@@ -666,7 +670,7 @@ build_time_vars = {'ABIFLAGS': '',
                              '-fPIC -DPy_BUILD_CORE_BUILTIN',
  'PY_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG '
               '-g -fwrapv -O3 -Wall -Wno-unused-command-line-argument',
- 'PY_CFLAGS_NODIST': '-flto -g -std=c99 -Wextra -Wno-unused-result '
+ 'PY_CFLAGS_NODIST': '-std=c99 -Wextra -Wno-unused-result '
                      '-Wno-unused-parameter -Wno-missing-field-initializers '
                      '-Wstrict-prototypes '
                      '-Werror=implicit-function-declaration '
@@ -675,8 +679,8 @@ build_time_vars = {'ABIFLAGS': '',
  'PY_COERCE_C_LOCALE': 1,
  'PY_CORE_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code '
                    '-DNDEBUG -g -fwrapv -O3 -Wall '
-                   '-Wno-unused-command-line-argument -flto -g -std=c99 '
-                   '-Wextra -Wno-unused-result -Wno-unused-parameter '
+                   '-Wno-unused-command-line-argument -std=c99 -Wextra '
+                   '-Wno-unused-result -Wno-unused-parameter '
                    '-Wno-missing-field-initializers -Wstrict-prototypes '
                    '-Werror=implicit-function-declaration -fvisibility=hidden  '
                    '-I/media/otherhd/aosp_tools/python3_build/python3/Include/internal '
@@ -684,20 +688,20 @@ build_time_vars = {'ABIFLAGS': '',
                    '-I/media/otherhd/aosp_tools/python3_build/python3/Include '
                    '-fPIC -DPy_BUILD_CORE',
  'PY_CORE_LDFLAGS': '-Wno-unused-command-line-argument -s '
-                    "-Wl,-rpath,'$ORIGIN/../lib' -flto -g",
+                    '-Wl,-rpath,\\$ORIGIN/../lib -Wl,--as-needed -flto=thin',
  'PY_CPPFLAGS': '-IObjects -IInclude -IPython -I. '
                 '-I/media/otherhd/aosp_tools/python3_build/python3/Include',
  'PY_ENABLE_SHARED': 1,
  'PY_FORMAT_SIZE_T': '"z"',
  'PY_LDFLAGS': '-Wno-unused-command-line-argument -s '
-               "-Wl,-rpath,'$ORIGIN/../lib'",
- 'PY_LDFLAGS_NODIST': '-flto -g',
+               '-Wl,-rpath,\\$ORIGIN/../lib -Wl,--as-needed -flto=thin',
+ 'PY_LDFLAGS_NODIST': '',
  'PY_SSL_DEFAULT_CIPHERS': 1,
  'PY_SSL_DEFAULT_CIPHER_STRING': 0,
  'PY_STDMODULE_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code '
                         '-DNDEBUG -g -fwrapv -O3 -Wall '
-                        '-Wno-unused-command-line-argument -flto -g -std=c99 '
-                        '-Wextra -Wno-unused-result -Wno-unused-parameter '
+                        '-Wno-unused-command-line-argument -std=c99 -Wextra '
+                        '-Wno-unused-result -Wno-unused-parameter '
                         '-Wno-missing-field-initializers -Wstrict-prototypes '
                         '-Werror=implicit-function-declaration '
                         '-fvisibility=hidden  '
@@ -713,14 +717,13 @@ build_time_vars = {'ABIFLAGS': '',
  'READELF': 'llvm-readelf',
  'RESSRCDIR': 'Mac/Resources/framework',
  'RETSIGTYPE': 'void',
- 'RUNSHARED': 'LD_LIBRARY_PATH=/media/otherhd/aosp_tools/python3_build/build:/media/otherhd/benzorom/prebuilts/clang/host/linux-x86/clang-benzo/lib64:',
+ 'RUNSHARED': 'LD_LIBRARY_PATH=/media/otherhd/aosp_tools/python3_build/build:/media/otherhd/benzorom-12/prebuilts/clang/host/linux-x86/clang-benzo/lib64:',
  'SCRIPTDIR': '/media/otherhd/aosp_tools/python3_build/install/lib',
  'SETPGRP_HAVE_ARG': 0,
- 'SGI_ABI': '@SGI_ABI@',
  'SHELL': '/bin/sh',
- 'SHLIBS': '-lcrypt -lpthread -ldl  -lutil -lm',
+ 'SHLIBS': '-lcrypt -ldl  -lm',
  'SHLIB_SUFFIX': '.so',
- 'SHM_NEEDS_LIBRT': 1,
+ 'SHM_NEEDS_LIBRT': 0,
  'SIGNED_RIGHT_SHIFT_ZERO_FILLS': 0,
  'SITEPATH': '',
  'SIZEOF_DOUBLE': 8,
@@ -756,15 +759,16 @@ build_time_vars = {'ABIFLAGS': '',
  'TCLTK_LIBS': '',
  'TESTOPTS': '',
  'TESTPATH': '',
- 'TESTPYTHON': 'LD_LIBRARY_PATH=/media/otherhd/aosp_tools/python3_build/build:/media/otherhd/benzorom/prebuilts/clang/host/linux-x86/clang-benzo/lib64: '
+ 'TESTPYTHON': 'LD_LIBRARY_PATH=/media/otherhd/aosp_tools/python3_build/build:/media/otherhd/benzorom-12/prebuilts/clang/host/linux-x86/clang-benzo/lib64: '
                './python',
  'TESTPYTHONOPTS': '',
- 'TESTRUNNER': 'LD_LIBRARY_PATH=/media/otherhd/aosp_tools/python3_build/build:/media/otherhd/benzorom/prebuilts/clang/host/linux-x86/clang-benzo/lib64: '
+ 'TESTRUNNER': 'LD_LIBRARY_PATH=/media/otherhd/aosp_tools/python3_build/build:/media/otherhd/benzorom-12/prebuilts/clang/host/linux-x86/clang-benzo/lib64: '
                './python '
                '/media/otherhd/aosp_tools/python3_build/python3/Tools/scripts/run_tests.py',
  'TESTSUBDIRS': 'ctypes/test \\',
  'TESTTIMEOUT': 1200,
  'TEST_MODULES': 'yes',
+ 'THREAD_STACK_SIZE': 0,
  'TIMEMODULE_LIB': 0,
  'TIME_WITH_SYS_TIME': 1,
  'TM_IN_SYS_TIME': 0,
