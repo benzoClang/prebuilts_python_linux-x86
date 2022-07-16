@@ -1,4 +1,4 @@
-#!/media/otherhd/aosp_tools/python3_build/install/bin/python3.10
+#!/media/otherssd/aosp_tools/python3_build/install/bin/python3.10
 import sys
 from lib2to3.main import main
 

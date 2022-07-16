@@ -12,8 +12,8 @@ build_time_vars = {'ABIFLAGS': '',
  'BASECFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code',
  'BASECPPFLAGS': '-IObjects -IInclude -IPython',
  'BASEMODLIBS': '',
- 'BINDIR': '/media/otherhd/aosp_tools/python3_build/install/bin',
- 'BINLIBDEST': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.10',
+ 'BINDIR': '/media/otherssd/aosp_tools/python3_build/install/bin',
+ 'BINLIBDEST': '/media/otherssd/aosp_tools/python3_build/install/lib/python3.10',
  'BLDLIBRARY': '-L. -lpython3.10',
  'BLDSHARED': 'clang -shared -Wno-unused-command-line-argument -s '
               '-Wl,-rpath,\\$ORIGIN/../lib -Wl,--as-needed -flto=thin',
@@ -41,28 +41,28 @@ build_time_vars = {'ABIFLAGS': '',
  'CONFIGURE_LDFLAGS': '-Wno-unused-command-line-argument -s '
                       '-Wl,-rpath,\\$ORIGIN/../lib -Wl,--as-needed -flto=thin',
  'CONFIGURE_LDFLAGS_NODIST': '',
- 'CONFIG_ARGS': "'--prefix=/media/otherhd/aosp_tools/python3_build/install' "
+ 'CONFIG_ARGS': "'--prefix=/media/otherssd/aosp_tools/python3_build/install' "
                 "'--enable-shared' 'CFLAGS=-Wno-unused-command-line-argument' "
                 "'LDFLAGS=-Wno-unused-command-line-argument -s "
                 "-Wl,-rpath,\\$ORIGIN/../lib -Wl,--as-needed -flto=thin' "
                 "'CC=clang'",
- 'CONFINCLUDEDIR': '/media/otherhd/aosp_tools/python3_build/install/include',
- 'CONFINCLUDEPY': '/media/otherhd/aosp_tools/python3_build/install/include/python3.10',
+ 'CONFINCLUDEDIR': '/media/otherssd/aosp_tools/python3_build/install/include',
+ 'CONFINCLUDEPY': '/media/otherssd/aosp_tools/python3_build/install/include/python3.10',
  'COREPYTHONPATH': '',
- 'COVERAGE_INFO': '/media/otherhd/aosp_tools/python3_build/build/coverage.info',
- 'COVERAGE_REPORT': '/media/otherhd/aosp_tools/python3_build/build/lcov-report',
+ 'COVERAGE_INFO': '/media/otherssd/aosp_tools/python3_build/build/coverage.info',
+ 'COVERAGE_REPORT': '/media/otherssd/aosp_tools/python3_build/build/lcov-report',
  'COVERAGE_REPORT_OPTIONS': '--no-branch-coverage --title "CPython lcov '
                             'report"',
  'CPPFLAGS': '-IObjects -IInclude -IPython -I. '
-             '-I/media/otherhd/aosp_tools/python3_build/python3/Include',
+             '-I/media/otherssd/aosp_tools/python3_build/python3/Include',
  'CXX': 'clang++',
- 'DESTDIRS': '/media/otherhd/aosp_tools/python3_build/install '
-             '/media/otherhd/aosp_tools/python3_build/install/lib '
-             '/media/otherhd/aosp_tools/python3_build/install/lib/python3.10 '
-             '/media/otherhd/aosp_tools/python3_build/install/lib/python3.10/lib-dynload',
- 'DESTLIB': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.10',
+ 'DESTDIRS': '/media/otherssd/aosp_tools/python3_build/install '
+             '/media/otherssd/aosp_tools/python3_build/install/lib '
+             '/media/otherssd/aosp_tools/python3_build/install/lib/python3.10 '
+             '/media/otherssd/aosp_tools/python3_build/install/lib/python3.10/lib-dynload',
+ 'DESTLIB': '/media/otherssd/aosp_tools/python3_build/install/lib/python3.10',
  'DESTPATH': '',
- 'DESTSHARED': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.10/lib-dynload',
+ 'DESTSHARED': '/media/otherssd/aosp_tools/python3_build/install/lib/python3.10/lib-dynload',
  'DFLAGS': '',
  'DIRMODE': 755,
  'DIST': 'README.rst ChangeLog configure configure.ac acconfig.h pyconfig.h.in '
@@ -95,13 +95,14 @@ build_time_vars = {'ABIFLAGS': '',
  'FLOCK_NEEDS_LIBBSD': 0,
  'GETPGRP_HAVE_ARG': 0,
  'GITBRANCH': 'git --git-dir '
-              '/media/otherhd/aosp_tools/python3_build/python3/.git name-rev '
+              '/media/otherssd/aosp_tools/python3_build/python3/.git name-rev '
               '--name-only HEAD',
- 'GITTAG': 'git --git-dir /media/otherhd/aosp_tools/python3_build/python3/.git '
-           'describe --all --always --dirty',
+ 'GITTAG': 'git --git-dir '
+           '/media/otherssd/aosp_tools/python3_build/python3/.git describe '
+           '--all --always --dirty',
  'GITVERSION': 'git --git-dir '
-               '/media/otherhd/aosp_tools/python3_build/python3/.git rev-parse '
-               '--short HEAD',
+               '/media/otherssd/aosp_tools/python3_build/python3/.git '
+               'rev-parse --short HEAD',
  'GNULD': 'yes',
  'HAVE_ACCEPT4': 1,
  'HAVE_ACOSH': 1,
@@ -535,12 +536,12 @@ build_time_vars = {'ABIFLAGS': '',
  'HAVE_ZLIB_COPY': 1,
  'HAVE__GETPTY': 0,
  'HOST_GNU_TYPE': 'x86_64-pc-linux-gnu',
- 'INCLDIRSTOMAKE': '/media/otherhd/aosp_tools/python3_build/install/include '
-                   '/media/otherhd/aosp_tools/python3_build/install/include '
-                   '/media/otherhd/aosp_tools/python3_build/install/include/python3.10 '
-                   '/media/otherhd/aosp_tools/python3_build/install/include/python3.10',
- 'INCLUDEDIR': '/media/otherhd/aosp_tools/python3_build/install/include',
- 'INCLUDEPY': '/media/otherhd/aosp_tools/python3_build/install/include/python3.10',
+ 'INCLDIRSTOMAKE': '/media/otherssd/aosp_tools/python3_build/install/include '
+                   '/media/otherssd/aosp_tools/python3_build/install/include '
+                   '/media/otherssd/aosp_tools/python3_build/install/include/python3.10 '
+                   '/media/otherssd/aosp_tools/python3_build/install/include/python3.10',
+ 'INCLUDEDIR': '/media/otherssd/aosp_tools/python3_build/install/include',
+ 'INCLUDEPY': '/media/otherssd/aosp_tools/python3_build/install/include/python3.10',
  'INSTALL': '/usr/bin/install -c',
  'INSTALL_DATA': '/usr/bin/install -c -m 644',
  'INSTALL_PROGRAM': '/usr/bin/install -c',
@@ -559,14 +560,14 @@ build_time_vars = {'ABIFLAGS': '',
              '-Wl,-rpath,\\$ORIGIN/../lib -Wl,--as-needed -flto=thin',
  'LDVERSION': '3.10',
  'LIBC': '',
- 'LIBDEST': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.10',
- 'LIBDIR': '/media/otherhd/aosp_tools/python3_build/install/lib',
+ 'LIBDEST': '/media/otherssd/aosp_tools/python3_build/install/lib/python3.10',
+ 'LIBDIR': '/media/otherssd/aosp_tools/python3_build/install/lib',
  'LIBFFI_INCLUDEDIR': '',
  'LIBM': '-lm',
  'LIBOBJDIR': 'Python/',
  'LIBOBJS': '',
- 'LIBPC': '/media/otherhd/aosp_tools/python3_build/install/lib/pkgconfig',
- 'LIBPL': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.10/config-3.10-x86_64-linux-gnu',
+ 'LIBPC': '/media/otherssd/aosp_tools/python3_build/install/lib/pkgconfig',
+ 'LIBPL': '/media/otherssd/aosp_tools/python3_build/install/lib/python3.10/config-3.10-x86_64-linux-gnu',
  'LIBPYTHON': '',
  'LIBRARY': 'libpython3.10.a',
  'LIBRARY_DEPS': 'libpython3.10.a libpython3.10.so libpython3.so',
@@ -580,19 +581,19 @@ build_time_vars = {'ABIFLAGS': '',
  'LIPO_INTEL64_FLAGS': '',
  'LLVM_PROF_ERR': 'no',
  'LLVM_PROF_FILE': 'LLVM_PROFILE_FILE="code-%p.profclangr"',
- 'LLVM_PROF_MERGER': '/media/otherhd/benzorom-12/prebuilts/clang/host/linux-x86/clang-benzo/bin/llvm-profdata '
+ 'LLVM_PROF_MERGER': '/media/otherssd/benzorom/prebuilts/clang/host/linux-x86/clang-benzo/bin/llvm-profdata '
                      'merge -output=code.profclangd *.profclangr',
  'LN': 'ln',
  'LOCALMODLIBS': '',
  'MACHDEP': 'linux',
  'MACHDEP_OBJS': '',
- 'MACHDESTLIB': '/media/otherhd/aosp_tools/python3_build/install/lib/python3.10',
+ 'MACHDESTLIB': '/media/otherssd/aosp_tools/python3_build/install/lib/python3.10',
  'MACOSX_DEPLOYMENT_TARGET': '',
  'MAINCC': 'clang',
  'MAJOR_IN_MKDEV': 0,
  'MAJOR_IN_SYSMACROS': 1,
- 'MAKESETUP': '/media/otherhd/aosp_tools/python3_build/python3/Modules/makesetup',
- 'MANDIR': '/media/otherhd/aosp_tools/python3_build/install/share/man',
+ 'MAKESETUP': '/media/otherssd/aosp_tools/python3_build/python3/Modules/makesetup',
+ 'MANDIR': '/media/otherssd/aosp_tools/python3_build/install/share/man',
  'MKDIR_P': '/usr/bin/mkdir -p',
  'MODBUILT_NAMES': 'posix  errno  pwd  _sre  _codecs  _weakref  _functools  '
                    '_operator  _collections  _abc  itertools  atexit  _signal  '
@@ -641,7 +642,7 @@ build_time_vars = {'ABIFLAGS': '',
  'POSIX_SEMAPHORES_NOT_ENABLED': 0,
  'PROFILE_TASK': '-m test --pgo --timeout=1200',
  'PTHREAD_KEY_T_IS_COMPATIBLE_WITH_INT': 1,
- 'PTHREAD_SYSTEM_SCHED_SUPPORTED': 1,
+ 'PTHREAD_SYSTEM_SCHED_SUPPORTED': 0,
  'PURIFY': '',
  'PY3LIBRARY': 'libpython3.so',
  'PYLONG_BITS_IN_DIGIT': 0,
@@ -664,9 +665,9 @@ build_time_vars = {'ABIFLAGS': '',
                              '-Wstrict-prototypes '
                              '-Werror=implicit-function-declaration '
                              '-fvisibility=hidden  '
-                             '-I/media/otherhd/aosp_tools/python3_build/python3/Include/internal '
+                             '-I/media/otherssd/aosp_tools/python3_build/python3/Include/internal '
                              '-IObjects -IInclude -IPython -I. '
-                             '-I/media/otherhd/aosp_tools/python3_build/python3/Include '
+                             '-I/media/otherssd/aosp_tools/python3_build/python3/Include '
                              '-fPIC -DPy_BUILD_CORE_BUILTIN',
  'PY_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG '
               '-g -fwrapv -O3 -Wall -Wno-unused-command-line-argument',
@@ -675,7 +676,7 @@ build_time_vars = {'ABIFLAGS': '',
                      '-Wstrict-prototypes '
                      '-Werror=implicit-function-declaration '
                      '-fvisibility=hidden  '
-                     '-I/media/otherhd/aosp_tools/python3_build/python3/Include/internal',
+                     '-I/media/otherssd/aosp_tools/python3_build/python3/Include/internal',
  'PY_COERCE_C_LOCALE': 1,
  'PY_CORE_CFLAGS': '-Wno-unused-result -Wsign-compare -Wunreachable-code '
                    '-DNDEBUG -g -fwrapv -O3 -Wall '
@@ -683,14 +684,14 @@ build_time_vars = {'ABIFLAGS': '',
                    '-Wno-unused-result -Wno-unused-parameter '
                    '-Wno-missing-field-initializers -Wstrict-prototypes '
                    '-Werror=implicit-function-declaration -fvisibility=hidden  '
-                   '-I/media/otherhd/aosp_tools/python3_build/python3/Include/internal '
+                   '-I/media/otherssd/aosp_tools/python3_build/python3/Include/internal '
                    '-IObjects -IInclude -IPython -I. '
-                   '-I/media/otherhd/aosp_tools/python3_build/python3/Include '
+                   '-I/media/otherssd/aosp_tools/python3_build/python3/Include '
                    '-fPIC -DPy_BUILD_CORE',
  'PY_CORE_LDFLAGS': '-Wno-unused-command-line-argument -s '
                     '-Wl,-rpath,\\$ORIGIN/../lib -Wl,--as-needed -flto=thin',
  'PY_CPPFLAGS': '-IObjects -IInclude -IPython -I. '
-                '-I/media/otherhd/aosp_tools/python3_build/python3/Include',
+                '-I/media/otherssd/aosp_tools/python3_build/python3/Include',
  'PY_ENABLE_SHARED': 1,
  'PY_FORMAT_SIZE_T': '"z"',
  'PY_LDFLAGS': '-Wno-unused-command-line-argument -s '
@@ -705,9 +706,9 @@ build_time_vars = {'ABIFLAGS': '',
                         '-Wno-missing-field-initializers -Wstrict-prototypes '
                         '-Werror=implicit-function-declaration '
                         '-fvisibility=hidden  '
-                        '-I/media/otherhd/aosp_tools/python3_build/python3/Include/internal '
+                        '-I/media/otherssd/aosp_tools/python3_build/python3/Include/internal '
                         '-IObjects -IInclude -IPython -I. '
-                        '-I/media/otherhd/aosp_tools/python3_build/python3/Include '
+                        '-I/media/otherssd/aosp_tools/python3_build/python3/Include '
                         '-fPIC',
  'Py_DEBUG': 0,
  'Py_ENABLE_SHARED': 1,
@@ -717,8 +718,8 @@ build_time_vars = {'ABIFLAGS': '',
  'READELF': 'llvm-readelf',
  'RESSRCDIR': 'Mac/Resources/framework',
  'RETSIGTYPE': 'void',
- 'RUNSHARED': 'LD_LIBRARY_PATH=/media/otherhd/aosp_tools/python3_build/build:/media/otherhd/benzorom-12/prebuilts/clang/host/linux-x86/clang-benzo/lib64:',
- 'SCRIPTDIR': '/media/otherhd/aosp_tools/python3_build/install/lib',
+ 'RUNSHARED': 'LD_LIBRARY_PATH=/media/otherssd/aosp_tools/python3_build/build:/media/otherssd/benzorom/prebuilts/clang/host/linux-x86/clang-benzo/lib64:',
+ 'SCRIPTDIR': '/media/otherssd/aosp_tools/python3_build/install/lib',
  'SETPGRP_HAVE_ARG': 0,
  'SHELL': '/bin/sh',
  'SHLIBS': '-lcrypt -ldl  -lm',
@@ -746,7 +747,7 @@ build_time_vars = {'ABIFLAGS': '',
  'SIZEOF__BOOL': 1,
  'SOABI': 'cpython-310-x86_64-linux-gnu',
  'SRCDIRS': 'Parser Objects Python Modules Modules/_io Programs',
- 'SRC_GDB_HOOKS': '/media/otherhd/aosp_tools/python3_build/python3/Tools/gdb/libpython.py',
+ 'SRC_GDB_HOOKS': '/media/otherssd/aosp_tools/python3_build/python3/Tools/gdb/libpython.py',
  'STATIC_LIBPYTHON': 1,
  'STDC_HEADERS': 1,
  'STRICT_SYSV_CURSES': "/* Don't use ncurses extensions */",
@@ -759,12 +760,12 @@ build_time_vars = {'ABIFLAGS': '',
  'TCLTK_LIBS': '',
  'TESTOPTS': '',
  'TESTPATH': '',
- 'TESTPYTHON': 'LD_LIBRARY_PATH=/media/otherhd/aosp_tools/python3_build/build:/media/otherhd/benzorom-12/prebuilts/clang/host/linux-x86/clang-benzo/lib64: '
+ 'TESTPYTHON': 'LD_LIBRARY_PATH=/media/otherssd/aosp_tools/python3_build/build:/media/otherssd/benzorom/prebuilts/clang/host/linux-x86/clang-benzo/lib64: '
                './python',
  'TESTPYTHONOPTS': '',
- 'TESTRUNNER': 'LD_LIBRARY_PATH=/media/otherhd/aosp_tools/python3_build/build:/media/otherhd/benzorom-12/prebuilts/clang/host/linux-x86/clang-benzo/lib64: '
+ 'TESTRUNNER': 'LD_LIBRARY_PATH=/media/otherssd/aosp_tools/python3_build/build:/media/otherssd/benzorom/prebuilts/clang/host/linux-x86/clang-benzo/lib64: '
                './python '
-               '/media/otherhd/aosp_tools/python3_build/python3/Tools/scripts/run_tests.py',
+               '/media/otherssd/aosp_tools/python3_build/python3/Tools/scripts/run_tests.py',
  'TESTSUBDIRS': 'ctypes/test \\',
  'TESTTIMEOUT': 1200,
  'TEST_MODULES': 'yes',
@@ -775,10 +776,10 @@ build_time_vars = {'ABIFLAGS': '',
  'TZPATH': '/usr/share/zoneinfo:/usr/lib/zoneinfo:/usr/share/lib/zoneinfo:/etc/zoneinfo',
  'UNICODE_DEPS': '\\',
  'UNIVERSALSDK': '',
- 'UPDATE_FILE': '/media/otherhd/aosp_tools/python3_build/python3/Tools/scripts/update_file.py',
+ 'UPDATE_FILE': '/media/otherssd/aosp_tools/python3_build/python3/Tools/scripts/update_file.py',
  'USE_COMPUTED_GOTOS': 0,
  'VERSION': '3.10',
- 'VPATH': '/media/otherhd/aosp_tools/python3_build/python3',
+ 'VPATH': '/media/otherssd/aosp_tools/python3_build/python3',
  'WHEEL_PKG_DIR': '',
  'WINDOW_HAS_FLAGS': 1,
  'WITH_DECIMAL_CONTEXTVAR': 1,
@@ -792,9 +793,9 @@ build_time_vars = {'ABIFLAGS': '',
  'WITH_VALGRIND': 0,
  'X87_DOUBLE_ROUNDING': 0,
  'XMLLIBSUBDIRS': 'xml xml/dom xml/etree xml/parsers xml/sax',
- 'abs_builddir': '/media/otherhd/aosp_tools/python3_build/build',
- 'abs_srcdir': '/media/otherhd/aosp_tools/python3_build/python3',
- 'datarootdir': '/media/otherhd/aosp_tools/python3_build/install/share',
- 'exec_prefix': '/media/otherhd/aosp_tools/python3_build/install',
- 'prefix': '/media/otherhd/aosp_tools/python3_build/install',
- 'srcdir': '/media/otherhd/aosp_tools/python3_build/python3'}
+ 'abs_builddir': '/media/otherssd/aosp_tools/python3_build/build',
+ 'abs_srcdir': '/media/otherssd/aosp_tools/python3_build/python3',
+ 'datarootdir': '/media/otherssd/aosp_tools/python3_build/install/share',
+ 'exec_prefix': '/media/otherssd/aosp_tools/python3_build/install',
+ 'prefix': '/media/otherssd/aosp_tools/python3_build/install',
+ 'srcdir': '/media/otherssd/aosp_tools/python3_build/python3'}
