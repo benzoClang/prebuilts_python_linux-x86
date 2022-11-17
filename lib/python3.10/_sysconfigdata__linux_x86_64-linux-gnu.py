@@ -42,7 +42,8 @@ build_time_vars = {'ABIFLAGS': '',
                       '-Wl,-rpath,\\$ORIGIN/../lib -Wl,--as-needed -flto=thin',
  'CONFIGURE_LDFLAGS_NODIST': '',
  'CONFIG_ARGS': "'--prefix=/media/otherssd/aosp_tools/python3_build/install' "
-                "'--enable-shared' 'CFLAGS=-Wno-unused-command-line-argument' "
+                "'--enable-shared' '--with-ensurepip=install' "
+                "'CFLAGS=-Wno-unused-command-line-argument' "
                 "'LDFLAGS=-Wno-unused-command-line-argument -s "
                 "-Wl,-rpath,\\$ORIGIN/../lib -Wl,--as-needed -flto=thin' "
                 "'CC=clang'",
@@ -81,7 +82,7 @@ build_time_vars = {'ABIFLAGS': '',
  'DTRACE_OBJS': '',
  'DYNLOADFILE': 'dynload_shlib.o',
  'ENABLE_IPV6': 1,
- 'ENSUREPIP': 'upgrade',
+ 'ENSUREPIP': 'install',
  'EXE': '',
  'EXEMODE': 755,
  'EXPERIMENTAL_ISOLATED_SUBINTERPRETERS': 0,
